@@ -5,7 +5,7 @@ project_path          = Sinatra::Application.root
 
 # Set this to the root of your project when deployed:
 http_path       = "/"
-css_dir         = "public/css"
+css_dir         = ".tmp/css"
 sass_dir        = "app/assets/css"
 images_dir      = "app/assets/img"
 javascripts_dir = "app/assets/js"

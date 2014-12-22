@@ -129,7 +129,7 @@ module.exports = function(grunt) {
     compass: {
       dist: {
         options: {
-          sassDir: 'scss',
+          sassDir: './app/assets/css',
           cssDir: '.tmp/css',
           config: 'config.rb'
         }
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['js/*.js'],
+        files: ['app/**/*.*'],
         tasks: ['concat', 'uglify', 'jshint'],
         options: {
           livereload: false,
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
 
       css: {
         files: ['app/assets/css/*.scss'],
-        tasks: ['sass'],
+        tasks: ['css'],
         options: {
           livereload: true,
           spawn: false

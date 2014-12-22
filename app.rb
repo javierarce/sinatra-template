@@ -66,7 +66,7 @@ class App < Sinatra::Base
   end
 
   set :static, true
-  set :root, File.dirname(__FILE__)
+  set :root, File.dirname(__FILE__) + "/app"
   set :public, 'public'
 
   def self.info(message, options = nil) 
