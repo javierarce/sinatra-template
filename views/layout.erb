@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sinatra app</title>
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="apple-touch-icon-precomposed" href="/img/Icon.png" />
+
+    <link href="/img/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0,user-scalable = no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  </head>
+  <body class="<%= @action %>">
+
+    <div id="content">
+      <%= yield %>
+    </div>
+
+    <% if (ENV["RACK_ENV"] == 'development') %>
+      <script type="text/javascript" src="/js/app.js"></script> 
+    <% else  %>
+      <script type="text/javascript" src="/js/app.min.js"></script> 
+    <% end %>
+
+  </body>
+</html>
