@@ -13,9 +13,7 @@ module.exports = function(grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
-            'dist/*',
-            '!dist/.git*'
+            '.tmp'
           ]
         }]
       },
@@ -23,7 +21,7 @@ module.exports = function(grunt) {
         files: [{
           dot: true,
           src: [
-            'dist/css',
+            'public/css',
           ]
         }]
       },
@@ -31,7 +29,7 @@ module.exports = function(grunt) {
         files: [{
           dot: true,
           src: [
-            'dist/js',
+            'public/js',
           ]
         }]
       }
@@ -57,20 +55,11 @@ module.exports = function(grunt) {
       },
       js: {
         src: [
-          'js/vendor/jquery.min.js',
-          'js/vendor/underscore.min.js',
-          'js/vendor/jquery.highlight.js',
-          'js/vendor/jquery.music.snitch.js',
-          'js/vendor/typed.js',
-          'js/vendor/vem.js',
-          'js/vendor/jquery-filteredPaste.js',
-          'js/vendor/nlp.min.js',
-          'js/vendor/PataphysicalDate.js',
-          'js/vendor/adjs.js',
-          'js/vendor/retina.js',
-          'js/*.js',
+          'app/assets/js/vendor/jquery.min.js',
+          'app/assets/js/vendor/underscore.min.js',
+          'app/assets/js/*.js',
         ],
-        dest: 'dist/js/<%= pkg.name %>.js'
+        dest: 'public/js/<%= pkg.name %>.js'
       }
     },
 
@@ -81,8 +70,8 @@ module.exports = function(grunt) {
         compress: true
       },
       build: {
-        src: 'dist/js/<%= pkg.name %>.js',
-        dest: 'dist/js/<%= pkg.name %>.min.js'
+        src: 'public/js/<%= pkg.name %>.js',
+        dest: 'public/js/<%= pkg.name %>.min.js'
       }
     },
 
@@ -132,7 +121,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'img',
           src: '**/*.{gif,jpeg,jpg,png,ico}',
-          dest: 'dist/img'
+          dest: 'public/img'
         }]
       }
     },
@@ -158,7 +147,7 @@ module.exports = function(grunt) {
       },
 
       css: {
-        files: ['scss/*.scss'],
+        files: ['app/assets/css/*.scss'],
         tasks: ['sass'],
         options: {
           livereload: true,
@@ -197,19 +186,27 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerTask('html', [
+    'concat:html'
+  ]);
+
   grunt.registerTask('css', [
     'compass',
     'concat:css',
     'cssmin'
   ]);
 
+  grunt.registerTask('js', [
+    'concat:js',
+    'uglify'
+  ]);
+
   grunt.registerTask('build', [
     'clean',
+    'html',
     'css',
-    'concat:html',
+    'js',
     'imagemin',
-    'concat:js',
-    'uglify',
     'targethtml'
   ]);
 
