@@ -109,8 +109,7 @@ module.exports = function(grunt) {
     cssmin: {
       dist: {
         files: {
-          'public/css/<%= pkg.name %>.min.css': ['public/css/<%= pkg.name %>.css'],
-          'public/css/<%= pkg.name %>-flat.min.css': ['public/css/<%= pkg.name %>-flat.css']
+          'public/css/<%= pkg.name %>.min.css': ['public/css/<%= pkg.name %>.css']
         }
       }
     },
