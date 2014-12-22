@@ -1,4 +1,4 @@
-source 'https://rubygems'
+source 'http://rubygems.org'
 
 gem 'capistrano'
 gem 'sinatra', '1.2.8'
