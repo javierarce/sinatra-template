@@ -1,2 +1,1 @@
-sinatra-template
-================
+Template for my sinatra projects.
