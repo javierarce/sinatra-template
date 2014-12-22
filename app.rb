@@ -53,7 +53,6 @@ class App < Sinatra::Base
   end
 
   configure :development do
-    helpers Sinatra::MyHelper
     #register Sinatra::Reloader
 
     enable :logging, :dump_errors
@@ -62,8 +61,6 @@ class App < Sinatra::Base
   end
 
   configure :production do
-    helpers Sinatra::MyHelper
-
     enable :logging, :dump_errors
     set :raise_errors, true
     LOGGER = Logger.new("log/production.log")

@@ -11,8 +11,6 @@ gem "net-https-wrapper"
 
 gem 'bcrypt-ruby' 
 
-gem 'compass'
-
 gem 'rake'
 gem 'json'
 
@@ -20,6 +18,9 @@ gem 'sqlite3'
 gem 'dm-sqlite-adapter'
 
 group :development do
+  gem 'compass'
+  gem 'sass'
+
   gem 'sinatra-reloader', :require => 'sinatra/reloader'
   gem 'racksh'
 

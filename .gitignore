@@ -1,4 +1,5 @@
 Gemfile.lock
+.tmp
 log/*
 .sass-cache
 node_modules
